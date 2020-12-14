@@ -1,0 +1,54 @@
+<html>
+      <head>
+            <style type="text/css">
+                form {
+                    background-color: grey;
+                }
+
+                #result-image {
+                    width: 600px;
+                    height: auto;
+                }
+
+                img {
+                    width: 100%;
+                }
+
+                #download-image {
+                    display: none;
+                }
+            </style>
+      </head>
+      <body>
+        <form>
+            <div class="">
+                <label for="author">Autor</label>
+                <input id="author" maxlength="50" type="text" />
+                <input id="author-color" type="color" value="#000000">
+            </div>
+            <div class="">
+                <label for="title">Título</label>
+                <input id="title" maxlength="50" type="text" />
+                <input id="title-color" type="color" value="#FFFFFF">
+            </div>
+            <div class="">
+                <label for="cover-image">Capa</label>
+                <input id="cover-image" type="file" accept=".jpg,.jpeg,.png" />
+            </div>    
+            <div class="">
+                <label for="watermark">Marca d'água</label>
+                <input id="watermark" type="file" accept=".jpg,.jpeg,.png" />
+            </div>
+            <div class="">
+                <button id="proccess-image" type="button">Processar imagem</button>
+            </div>
+        </form>
+        <div id="result">
+            <div id="result-image"></div>
+            <a id="download-image" download="converted-image.png" href="" type="button">
+                Download
+            </a>
+        </div>
+        <script type="text/javascript" src="scripts/watermark.bundle.js"></script>
+    </body>
+</html>
