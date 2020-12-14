@@ -13,6 +13,11 @@ var author        = document.querySelector("#author"),
     
 // Process the image.
 processImage.addEventListener("click", function(e) {
+    if (!uCoverImage.files[0] || !uWatermark.files[0]) {
+        console.log('Imagem não definida.');
+        return;
+    }
+
     applyWatermark({
         'author': author.value,
         'authorColor': authorColor.value,
@@ -23,12 +28,6 @@ processImage.addEventListener("click", function(e) {
     });
 
 }, false);
-
-// Download the image.
-downloadImage.addEventListener("click", function(e) {
-    
-}, false);
-
 
 function applyWatermark(infoToProcess) {
     console.log(infoToProcess);
@@ -61,25 +60,5 @@ function applyWatermark(infoToProcess) {
 
             document.getElementById('result-image').appendChild(img);
             downloadImage.href = document.getElementById('new-image').src;
-        //console.log(document.getElementById('alpha-image'));
         });
 }
-
-/*
-watermark([uCoverImage, uWatermark], options)
-  .image(watermark.image.lowerRight(0.5))
-  .then(function (img) {
-    document.getElementById('alpha-image').appendChild(img);
-    //console.log(document.getElementById('alpha-image'));
-  });
-  
-*/
-  
-/*
-
-watermark(['http://web.com/a.jpg', 'http://web.com/b.jpg'], options);
-
-// load a url and a file object
-var upload = document.querySelector('input[type=file]').files[0];
-watermark(['/img/photo.jpg', upload]);
-*/

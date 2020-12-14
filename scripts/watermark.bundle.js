@@ -901,20 +901,10 @@ watermark.destroy = function () {
 /******/ ]);
 });
 },{}],2:[function(require,module,exports){
+// browserify scripts/watermark.js > scripts/watermark.bundle.js
+
 var watermark = require('../node_modules/watermarkjs');
-/*watermark(['./img/GenuineChevroletParts.jpg', './img/logo.png'])
-  .image(watermark.image.lowerRight(0.5))
-  .then(function (img) {
-    document.getElementById('alpha-image').appendChild(img);
-    console.log(document.getElementById('alpha-image'));
-  });
-  
-  */
-// load cross domain images
 
-
-// load local images
-//watermark(['./img/GenuineChevroletParts.jpg', './img/logo.png'], options)
 var author        = document.querySelector("#author"),
     authorColor   = document.querySelector("#author-color"),
     title         = document.querySelector("#title"),
@@ -926,6 +916,11 @@ var author        = document.querySelector("#author"),
     
 // Process the image.
 processImage.addEventListener("click", function(e) {
+    if (!uCoverImage.files[0] || !uWatermark.files[0]) {
+        console.log('Imagem não definida.');
+        return;
+    }
+
     applyWatermark({
         'author': author.value,
         'authorColor': authorColor.value,
@@ -967,15 +962,7 @@ function applyWatermark(infoToProcess) {
             '30px Josefin Slab',
             infoToProcess.titleColor,
             1
-        ))
-        //.render()
-        //
-        
-        // .image(watermark.image.lowerRight(0.5))
-        // .load(['img/peridot.png'])
-        // .image(watermark.image.upperLeft(0.5))
-        
-        
+        ))     
         .then(function (img) {
             img.id = "new-image";
             downloadImage.style.display = "block";
