@@ -1,5 +1,8 @@
 <html>
       <head>
+            <title>Watermark</title>
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Aladin&display=swap" rel="stylesheet">
             <style type="text/css">
                 form {
                     background-color: grey;
@@ -24,12 +27,20 @@
             <div class="">
                 <label for="author">Autor</label>
                 <input id="author" maxlength="50" type="text" />
-                <input id="author-color" type="color" value="#000000">
+                <input id="author-color" type="color" value="#000000" />
+                <label for="author-position-x">Posição X (px da imagem de capa)</label>
+                <input id="author-position-x" type="number" />
+                <label for="author-position-y">Posição Y (px da imagem de capa)</label>
+                <input id="author-position-y" type="number" />
             </div>
             <div class="">
                 <label for="title">Título</label>
                 <input id="title" maxlength="50" type="text" />
-                <input id="title-color" type="color" value="#FFFFFF">
+                <input id="title-color" type="color" value="#FFFFFF" />
+                <label for="title-position-x">Posição X (px da imagem de capa)</label>
+                <input id="title-position-x" type="number" />
+                <label for="title-position-y">Posição Y (px da imagem de capa)</label>
+                <input id="title-position-y" type="number" />
             </div>
             <div class="">
                 <label for="cover-image">Capa</label>
@@ -38,6 +49,12 @@
             <div class="">
                 <label for="watermark">Marca d'água</label>
                 <input id="watermark" type="file" accept=".jpg,.jpeg,.png" />
+                <label for="watermark-opacity">Opacidade</label>
+                <input id="watermark-opacity" type="number" min="0.1" max="1" value="1" />
+                <label for="watermark-position-x">Posição X</label>
+                <input id="watermark-position-x" type="number" />
+                <label for="watermark-position-y">Posição Y</label>
+                <input id="watermark-position-y" type="number" />
             </div>
             <div class="">
                 <button id="proccess-image" type="button">Processar imagem</button>
